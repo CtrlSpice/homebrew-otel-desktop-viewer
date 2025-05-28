@@ -5,51 +5,38 @@
 class OtelDesktopViewer < Formula
   desc "OpenTelemetry Desktop Viewer"
   homepage "https://github.com/CtrlSpice/otel-desktop-viewer"
-  version "0.2.0"
+  version "0.2.0-test2"
   license "Apache-2.0"
 
   depends_on "go"
 
   on_macos do
-    if Hardware::CPU.arm?
-      url "https://github.com/CtrlSpice/otel-desktop-viewer/releases/download/v0.2.0/otel-desktop-viewer_MacOS_arm64.tar.gz"
-      sha256 "TBD"
+    url "https://github.com/CtrlSpice/otel-desktop-viewer/releases/download/v0.2.0-test2/otel-desktop-viewer_homebrew_MacOS_x86_64.tar.gz"
+    sha256 "de768461ad8f2db68c18ee758565a59d08b8d36d0c6cc369ece5a68b620fb3bc"
 
-      def install
-        bin.install "otel-desktop-viewer"
-      end
+    def install
+      bin.install "otel-desktop-viewer"
     end
-    if Hardware::CPU.intel?
-      url "https://github.com/CtrlSpice/otel-desktop-viewer/releases/download/v0.2.0/otel-desktop-viewer_MacOS_x86_64.tar.gz"
-      sha256 "TBD"
 
-      def install
-        bin.install "otel-desktop-viewer"
+    if Hardware::CPU.arm?
+      def caveats
+        <<~EOS
+          The darwin_arm64 architecture is not supported for the OtelDesktopViewer
+          formula at this time. The darwin_amd64 binary may work in compatibility
+          mode, but it might not be fully supported.
+        EOS
       end
     end
   end
 
   on_linux do
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/CtrlSpice/otel-desktop-viewer/releases/download/v0.2.0/otel-desktop-viewer_Linux_arm64.tar.gz"
-      sha256 "TBD"
-
+    if Hardware::CPU.intel? and Hardware::CPU.is_64_bit?
+      url "https://github.com/CtrlSpice/otel-desktop-viewer/releases/download/v0.2.0-test2/otel-desktop-viewer_homebrew_Linux_x86_64.tar.gz"
+      sha256 "edd921fa6211fa0c71748d87c0af4d0bb9a670d62718913d180749abec86e321"
       def install
         bin.install "otel-desktop-viewer"
       end
     end
-    if Hardware::CPU.intel?
-      url "https://github.com/CtrlSpice/otel-desktop-viewer/releases/download/v0.2.0/otel-desktop-viewer_Linux_x86_64.tar.gz"
-      sha256 "TBD"
-
-      def install
-        bin.install "otel-desktop-viewer"
-      end
-    end
-  end
-
-  test do
-    system "#{bin}/otel-desktop-viewer", "--version"
   end
 
   def caveats
@@ -58,4 +45,8 @@ class OtelDesktopViewer < Formula
         otel-desktop-viewer
     EOS
   end
-end 
+
+  test do
+    system "#{bin}/otel-desktop-viewer", "--version"
+  end
+end
