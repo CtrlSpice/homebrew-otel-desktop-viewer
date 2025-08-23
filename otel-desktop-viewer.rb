@@ -5,14 +5,14 @@
 class OtelDesktopViewer < Formula
   desc "OpenTelemetry Desktop Viewer"
   homepage "https://github.com/CtrlSpice/otel-desktop-viewer"
-  version "0.2.3"
+  version "0.2.4"
   license "Apache-2.0"
 
   depends_on "go"
 
   on_macos do
-    url "https://github.com/CtrlSpice/otel-desktop-viewer/releases/download/v0.2.3/otel-desktop-viewer_homebrew_MacOS_x86_64.tar.gz"
-    sha256 "14e726c105ed2e299c49bef8e3d90656438526ed49744c3d8100cdaeff721713"
+    url "https://github.com/CtrlSpice/otel-desktop-viewer/releases/download/v0.2.4/otel-desktop-viewer_homebrew_MacOS_x86_64.tar.gz"
+    sha256 "4790678f8e40fd04b6a19e6a6e384b94847b4aab3c58b91be3f9ea741469f9a2"
 
     def install
       bin.install "otel-desktop-viewer"
@@ -31,8 +31,8 @@ class OtelDesktopViewer < Formula
 
   on_linux do
     if Hardware::CPU.intel? and Hardware::CPU.is_64_bit?
-      url "https://github.com/CtrlSpice/otel-desktop-viewer/releases/download/v0.2.3/otel-desktop-viewer_homebrew_Linux_x86_64.tar.gz"
-      sha256 "b4e09e90326b1e0e8d19311f53c78030e486f59671b9374cd418696708f54431"
+      url "https://github.com/CtrlSpice/otel-desktop-viewer/releases/download/v0.2.4/otel-desktop-viewer_homebrew_Linux_x86_64.tar.gz"
+      sha256 "f931194eedeb8813b50a372a284f636a337d084d668775194ef3ce5b53b6b8e2"
       def install
         bin.install "otel-desktop-viewer"
       end
