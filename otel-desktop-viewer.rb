@@ -12,7 +12,7 @@ class OtelDesktopViewer < Formula
 
   on_macos do
     url "https://github.com/CtrlSpice/otel-desktop-viewer/releases/download/v0.2.4/otel-desktop-viewer_homebrew_MacOS_x86_64.tar.gz"
-    sha256 "4790678f8e40fd04b6a19e6a6e384b94847b4aab3c58b91be3f9ea741469f9a2"
+    sha256 "01bb36081b662465654fd8a18bc109370bcffa6c29b1a480432eb0315a65f169"
 
     def install
       bin.install "otel-desktop-viewer"
@@ -32,7 +32,7 @@ class OtelDesktopViewer < Formula
   on_linux do
     if Hardware::CPU.intel? and Hardware::CPU.is_64_bit?
       url "https://github.com/CtrlSpice/otel-desktop-viewer/releases/download/v0.2.4/otel-desktop-viewer_homebrew_Linux_x86_64.tar.gz"
-      sha256 "f931194eedeb8813b50a372a284f636a337d084d668775194ef3ce5b53b6b8e2"
+      sha256 "b62c3d258de9bb2e183e3d3cbfda8af245bbbbbf399c8a8eeb0367eacc5fdc42"
       def install
         bin.install "otel-desktop-viewer"
       end
