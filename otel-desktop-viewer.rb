@@ -5,34 +5,26 @@
 class OtelDesktopViewer < Formula
   desc "OpenTelemetry Desktop Viewer"
   homepage "https://github.com/CtrlSpice/otel-desktop-viewer"
-  version "0.2.4"
+  version "0.2.5-test"
   license "Apache-2.0"
 
   depends_on "go"
 
   on_macos do
-    url "https://github.com/CtrlSpice/otel-desktop-viewer/releases/download/v0.2.4/otel-desktop-viewer_homebrew_MacOS_x86_64.tar.gz"
-    sha256 "01bb36081b662465654fd8a18bc109370bcffa6c29b1a480432eb0315a65f169"
-
-    def install
-      bin.install "otel-desktop-viewer"
-    end
-
     if Hardware::CPU.arm?
-      def caveats
-        <<~EOS
-          The darwin_arm64 architecture is not supported for the OtelDesktopViewer
-          formula at this time. The darwin_amd64 binary may work in compatibility
-          mode, but it might not be fully supported.
-        EOS
+      url "https://github.com/CtrlSpice/otel-desktop-viewer/releases/download/v0.2.5-test/otel-desktop-viewer_homebrew_MacOS_arm64.tar.gz"
+      sha256 "24bd69352f1cb59add23367bb598b7cdb235202de6930114aab4dce8c09224ed"
+
+      def install
+        bin.install "otel-desktop-viewer"
       end
     end
   end
 
   on_linux do
-    if Hardware::CPU.intel? and Hardware::CPU.is_64_bit?
-      url "https://github.com/CtrlSpice/otel-desktop-viewer/releases/download/v0.2.4/otel-desktop-viewer_homebrew_Linux_x86_64.tar.gz"
-      sha256 "b62c3d258de9bb2e183e3d3cbfda8af245bbbbbf399c8a8eeb0367eacc5fdc42"
+    if Hardware::CPU.arm? and Hardware::CPU.is_64_bit?
+      url "https://github.com/CtrlSpice/otel-desktop-viewer/releases/download/v0.2.5-test/otel-desktop-viewer_homebrew_Linux_arm64.tar.gz"
+      sha256 "ed647dc7caa9409d4b2d7a51df1d1b95c5ee37612ce1c5dc037f0528e565a2d0"
       def install
         bin.install "otel-desktop-viewer"
       end
