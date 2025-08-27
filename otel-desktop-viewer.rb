@@ -5,15 +5,23 @@
 class OtelDesktopViewer < Formula
   desc "OpenTelemetry Desktop Viewer"
   homepage "https://github.com/CtrlSpice/otel-desktop-viewer"
-  version "0.2.5"
+  version "0.2.5-test"
   license "Apache-2.0"
 
   depends_on "go"
 
   on_macos do
+    if Hardware::CPU.intel?
+      url "https://github.com/CtrlSpice/otel-desktop-viewer/releases/download/v0.2.5-test/otel-desktop-viewer_homebrew_darwin_amd64.tar.gz"
+      sha256 "43f83a9b33e8f9d505c4239b969e8f4c7ad52d00d48dab169f0824b6bbfa63ea"
+
+      def install
+        bin.install "otel-desktop-viewer"
+      end
+    end
     if Hardware::CPU.arm?
-      url "https://github.com/CtrlSpice/otel-desktop-viewer/releases/download/v0.2.5/otel-desktop-viewer_homebrew_MacOS_arm64.tar.gz"
-      sha256 "bb6af8111276bce352be8c745aed97cc3c6272d5dac8e5924801967ea1d61175"
+      url "https://github.com/CtrlSpice/otel-desktop-viewer/releases/download/v0.2.5-test/otel-desktop-viewer_homebrew_darwin_arm64.tar.gz"
+      sha256 "aa42749a3db2664fbb4d08f6538fab22a91614643404000f9e2e76b71ce66ff2"
 
       def install
         bin.install "otel-desktop-viewer"
@@ -22,9 +30,16 @@ class OtelDesktopViewer < Formula
   end
 
   on_linux do
+    if Hardware::CPU.intel? and Hardware::CPU.is_64_bit?
+      url "https://github.com/CtrlSpice/otel-desktop-viewer/releases/download/v0.2.5-test/otel-desktop-viewer_homebrew_linux_amd64.tar.gz"
+      sha256 "83da59477337ead7004d35bf37520b23e3081f4fce24a9b2663d5f7688fee761"
+      def install
+        bin.install "otel-desktop-viewer"
+      end
+    end
     if Hardware::CPU.arm? and Hardware::CPU.is_64_bit?
-      url "https://github.com/CtrlSpice/otel-desktop-viewer/releases/download/v0.2.5/otel-desktop-viewer_homebrew_Linux_arm64.tar.gz"
-      sha256 "31b8ec2088482626141d8ac651d598a54cb801b7f402b4c0f9db7df96a4032ee"
+      url "https://github.com/CtrlSpice/otel-desktop-viewer/releases/download/v0.2.5-test/otel-desktop-viewer_homebrew_linux_arm64.tar.gz"
+      sha256 "d09e043e42c598ce37e9c2aa1baec4d663e6f641102c57ccd5b7693d68f15d8d"
       def install
         bin.install "otel-desktop-viewer"
       end
