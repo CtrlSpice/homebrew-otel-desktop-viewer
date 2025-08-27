@@ -2,36 +2,33 @@
 cask "otel-desktop-viewer" do
   desc "otel-desktop-viewer is a CLI tool for receiving OpenTelemetry traces while working on your local machine. Logs and metrics coming soon!"
   homepage "https://github.com/CtrlSpice/otel-desktop-viewer"
-  version "0.2.5-test"
+  version "0.2.5"
 
   livecheck do
     skip "Auto-generated on release."
   end
 
   binary "otel-desktop-viewer"
-  depends_on formula: [
-      "go",
-    ]
 
   on_macos do
     on_intel do
-      url "https://github.com/CtrlSpice/otel-desktop-viewer/releases/download/v0.2.5-test/otel-desktop-viewer_homebrew_darwin_amd64.tar.gz"
-      sha256 "56bafbe8511c5a487ea235a280d3d9d7df60a9d36e5ac5f0d62f6483ea0ec327"
+      url "https://github.com/CtrlSpice/otel-desktop-viewer/releases/download/v0.2.5/otel-desktop-viewer_homebrew_darwin_amd64.tar.gz"
+      sha256 "d64697b9ece9689af26f7c56e1932449dc829dadc6fc778afdebf0b0109dcff1"
     end
     on_arm do
-      url "https://github.com/CtrlSpice/otel-desktop-viewer/releases/download/v0.2.5-test/otel-desktop-viewer_homebrew_darwin_arm64.tar.gz"
-      sha256 "e7c29f2e8bc16bd7cb8c9414f648cfe3058480d999bd4183fd6bcd405f8e6633"
+      url "https://github.com/CtrlSpice/otel-desktop-viewer/releases/download/v0.2.5/otel-desktop-viewer_homebrew_darwin_arm64.tar.gz"
+      sha256 "7788e38312bba4b395fb5e7cbb5733aac3076c352212cb1143c47ab8dd5da895"
     end
   end
 
   on_linux do
     on_intel do
-      url "https://github.com/CtrlSpice/otel-desktop-viewer/releases/download/v0.2.5-test/otel-desktop-viewer_homebrew_linux_amd64.tar.gz"
-      sha256 "f552b6ad559bf56e1c3d023a97afb0a4acadbbfa1bbfaa53151de1ef6b530612"
+      url "https://github.com/CtrlSpice/otel-desktop-viewer/releases/download/v0.2.5/otel-desktop-viewer_homebrew_linux_amd64.tar.gz"
+      sha256 "5b3fd182edde5134c404e3489bf9420ef6efe18d69e3e38e3a8c1b70f78935cf"
     end
     on_arm do
-      url "https://github.com/CtrlSpice/otel-desktop-viewer/releases/download/v0.2.5-test/otel-desktop-viewer_homebrew_linux_arm64.tar.gz"
-      sha256 "1eea88adb61dc38aa44b3e629295ffae1f0bf0be0c6f55bc82067274d961424a"
+      url "https://github.com/CtrlSpice/otel-desktop-viewer/releases/download/v0.2.5/otel-desktop-viewer_homebrew_linux_arm64.tar.gz"
+      sha256 "25930472ae5882016d66d1e896b65343a469a8fb3c54d4affe52968883eb8708"
     end
   end
 
